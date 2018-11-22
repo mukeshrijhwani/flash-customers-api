@@ -114,7 +114,7 @@
 				<artifactId>s3-upload-maven-plugin</artifactId>
 				<version>1.4</version>
 				<configuration>
-					<bucketName>mukesh-mulesoft</bucketName>
+					<bucketName>${AWS_BUCKET_NAME}</bucketName>
 					<source>target/${artifactId}-${version}.zip</source>
 					<destination>${ANYPOINT_ENVIRONMENT}/${artifactId}-${version}.zip</destination>
 					<accessKey>${AWS_ACCESS_KEY_ID}</accessKey>
