@@ -118,7 +118,7 @@
 					<source>target/${artifactId}-${version}.zip</source>
 					<destination>${ANYPOINT_ENVIRONMENT}/${artifactId}-${version}.zip</destination>
 					<accessKey>${AWS_ACCESS_KEY_ID}</accessKey>
-					<secretKey>${AWS_SECRET_KEY}</secretKey>
+					<secretKey>${AWS_ACCESS_SECRET_KEY}</secretKey>
 				</configuration>
 			</plugin>
 		</plugins>
