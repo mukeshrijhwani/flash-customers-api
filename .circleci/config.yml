@@ -50,7 +50,8 @@ jobs:
       - run: newman run promote/it.pc.json --global-var targetApplicationName=$ANYPOINT_APPLICATION_NAME;
 
       # 2. promote the binary      
-      - run: newman run promote/promote.pc.json --global-var ANYPOINT_USERNAME=$ANYPOINT_USERNAME --global-var ANYPOINT_PASSWORD=$ANYPOINT_PASSWORD --global-var targetApplicationName=$ANYPOINT_TARGET_APPLICATION_NAME --global-var sourceApplicationName=$ANYPOINT_APPLICATION_NAME --global-var targetEnvironmentName=$ANYPOINT_TARGET_ENVIRONMENT --global-var sourceEnvironmentName=$ANYPOINT_ENVIRONMENT
+      #- run: newman run promote/promote.pc.json --global-var ANYPOINT_USERNAME=$ANYPOINT_USERNAME --global-var ANYPOINT_PASSWORD=$ANYPOINT_PASSWORD --global-var targetApplicationName=$ANYPOINT_TARGET_APPLICATION_NAME --global-var sourceApplicationName=$ANYPOINT_APPLICATION_NAME --global-var targetEnvironmentName=$ANYPOINT_TARGET_ENVIRONMENT --global-var sourceEnvironmentName=$ANYPOINT_ENVIRONMENT      
+      -run: anypoint-cli --username=$ANYPOINT_USERNAME --password=$ANYPOINT_PASSWORD runtime-mgr cloudhub-application copy $ANYPOINT_APPLICATION_NAME :$ANYPOINT_TARGET_ENVIRONMENT/$ANYPOINT_TARGET_APPLICATION_NAME
 
       ######### download from cloudhub ##########      
       # 2a. download the binary zip file
@@ -60,7 +61,7 @@ jobs:
       ######### download from cloudhub ##########      
 
       # 3. upload the binary zip to aws repository
-      #- run: anypoint-cli runtime-mgr cloudhub-application describe $ANYPOINT_APPLICATION_NAME 
+      #- run: anypoint-cli runtime-mgr cloudhub-application describe $ANYPOINT_APPLICATION_NAME       
       #- run: echo 'export SOURCE_FILENAME=$( eval anypoint-cli runtime-mgr cloudhub-application describe $ANYPOINT_APPLICATION_NAME | grep "File name" | cut -f 2)' >> ~/.env
       - run: echo 'export SOURCE_FILENAME=$( eval anypoint-cli runtime-mgr cloudhub-application describe $ANYPOINT_APPLICATION_NAME -f "File\ name" | cut -f 2)' >> ~/.env      
       - run: 
