@@ -1,6 +1,6 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+CICD reference implementation using github, circleci and amazon s3.
 
 ### What is this repository for? ###
 
