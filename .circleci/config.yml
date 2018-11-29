@@ -51,7 +51,7 @@ jobs:
 
       # 2. promote the binary      
       #- run: newman run promote/promote.pc.json --global-var ANYPOINT_USERNAME=$ANYPOINT_USERNAME --global-var ANYPOINT_PASSWORD=$ANYPOINT_PASSWORD --global-var targetApplicationName=$ANYPOINT_TARGET_APPLICATION_NAME --global-var sourceApplicationName=$ANYPOINT_APPLICATION_NAME --global-var targetEnvironmentName=$ANYPOINT_TARGET_ENVIRONMENT --global-var sourceEnvironmentName=$ANYPOINT_ENVIRONMENT      
-      - run: anypoint-cli --username=$ANYPOINT_USERNAME --password=$ANYPOINT_PASSWORD runtime-mgr cloudhub-application copy $ANYPOINT_APPLICATION_NAME :$ANYPOINT_TARGET_ENVIRONMENT/$ANYPOINT_TARGET_APPLICATION_NAME
+      #- run: anypoint-cli --username=$ANYPOINT_USERNAME --password=$ANYPOINT_PASSWORD runtime-mgr cloudhub-application copy $ANYPOINT_APPLICATION_NAME :$ANYPOINT_TARGET_ENVIRONMENT/$ANYPOINT_TARGET_APPLICATION_NAME
 
       ######### download from cloudhub ##########      
       # 2a. download the binary zip file
